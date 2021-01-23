@@ -1,4 +1,5 @@
 class Tenant < ApplicationRecord
-    has_many :rooms
-    has_many :hotels through :rooms
+    belong_to :user
+    has_many :reservations
+    has_many :rooms, through: :reservations
 end
