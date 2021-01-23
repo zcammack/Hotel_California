@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  occupancy: MyString
+  vacant: false
+  floor_number: MyString
+  smoking: false
+  price_per_night: MyString
+  hotel: one
+
+two:
+  occupancy: MyString
+  vacant: false
+  floor_number: MyString
+  smoking: false
+  price_per_night: MyString
+  hotel: two
