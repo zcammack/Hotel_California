@@ -1,0 +1,11 @@
+<% content_for :top_content do %>
+  <div class="bigbox">
+    <div class="container">
+      <h1>Welcome to Hotel California, such a lovely place.</h1>
+      <p>Please register to get started.</p>
+      <p>
+        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+  </div>
+<% end %>
