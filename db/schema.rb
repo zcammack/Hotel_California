@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_01_23_234034) do
 
   create_table "hotels", force: :cascade do |t|
+    t.string "name"
     t.string "size"
     t.string "vacancies"
     t.boolean "wifi"
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_234034) do
   create_table "rooms", force: :cascade do |t|
     t.string "occupancy"
     t.boolean "vacant"
-    t.string "floor_number"
+    t.string "room_number"
     t.boolean "smoking"
     t.string "price_per_night"
     t.integer "hotel_id", null: false
