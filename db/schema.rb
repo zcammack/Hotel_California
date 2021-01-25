@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_234034) do
   create_table "hotels", force: :cascade do |t|
     t.string "name"
     t.string "size"
-    t.string "vacancies"
     t.boolean "wifi"
     t.boolean "breakfast"
     t.string "accessibility"
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_234034) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "duration"
     t.string "party_size"
     t.date "start_date"
     t.date "end_date"

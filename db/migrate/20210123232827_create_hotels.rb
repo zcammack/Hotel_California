@@ -3,7 +3,6 @@ class CreateHotels < ActiveRecord::Migration[6.0]
     create_table :hotels do |t|
       t.string :name
       t.string :size
-      t.string :vacancies
       t.boolean :wifi
       t.boolean :breakfast
       t.string :accessibility

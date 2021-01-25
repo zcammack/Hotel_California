@@ -1,8 +1,8 @@
 Requirements
 
-1. Use the Ruby on Rails framework.
+X 1. Use the Ruby on Rails framework.
 
-2. Your models must:
+X 2. Your models must:
 
 • Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
 
@@ -12,7 +12,7 @@ Requirements
 
 4. You must include at least one class level ActiveRecord scope method (Links to an external site.). a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods (Links to an external site.) within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
 
-5. Your application must provide standard user authentication, including signup, login, logout, and passwords.
+X 5. Your application must provide standard user authentication, including signup, login, logout, and passwords.
 
 6. Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
