@@ -6,6 +6,25 @@ class ReservationsController < ApplicationController
     end
 
     def create
-        binding.pry
+        @reservation = tenant.reservations.build(reservation_params)
+        if @reservation.save
+            redirect_to reservations_path
+        else
+            render :new
+        end
+    end
+
+    def show
+
+    end
+
+    def index
+        @reservations = 
+    end
+
+    private
+
+    def reservation_params
+        params.require(:reservation).permit(:party_size, :start_date, :end_date)
     end
 end

@@ -1,1 +1,18 @@
-<h1>This is a list of all the hotels.</h1>
+<h1>All of your local hotels!</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Number of Rooms</th>
+    <th>See More...</th>
+    <th>
+  </tr>
+ 
+  <% @hotels.each do |hotel| %>
+    <tr>
+      <td><%= hotel.name %></td>
+      <td><%= hotel.size %></td>
+      <td><%= link_to 'See More', hotel_path(hotel.id) %></td>
+    </tr>
+  <% end %>
+</table>

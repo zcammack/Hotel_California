@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2021_01_23_234034) do
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
-    t.string "size"
-    t.boolean "wifi"
-    t.boolean "breakfast"
+    t.integer "size"
+    t.string "wifi"
+    t.string "breakfast"
     t.string "accessibility"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
