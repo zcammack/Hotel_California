@@ -1,0 +1,14 @@
+<h1>Reservation Details</h1>
+
+<%= form_for(@reservation) do |f| %>
+    <%= f.label :party_size %>
+    <%= f.number_field :party_size %>
+    <br>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+    <br>
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+    <br>
+    <%= f.submit %>
+<% end %>
