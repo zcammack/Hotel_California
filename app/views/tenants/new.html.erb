@@ -1,0 +1,15 @@
+<h1>Please fill out the following form for the primary room holder.</h1>
+<%= form_for(@tenant) do |f| %>
+    
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, required:true %>
+    <br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, required:true %>
+    <br>
+    <%= f.label :age %>
+    <%= f.text_field :age, required:true %>
+    <br>
+    <%= f.submit "Submit" %>
+
+<% end %>

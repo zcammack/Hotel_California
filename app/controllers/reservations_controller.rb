@@ -1,6 +1,14 @@
 class ReservationsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
+    def index
+        if params[:tenant_id] && @tenant = Tenant.find_by_id(params[:tenant_id])
+            @reservations = @tenant.reservations
+        else
+            @reservations = Reservation.all
+        end
+    end
+
     def new
         @reservation = Reservation.new
     end
@@ -15,12 +23,22 @@ class ReservationsController < ApplicationController
     end
 
     def show
+        @reservation = Reservation.find_by(id: params)
+    end
+
+    def edit
+        @reservation = Reservation.find_by(id: params)
+    end
+
+    def update
+        @reservation = Reservation.find_by(id: params)
 
     end
 
-    def index
-        @reservations = 
+    def destroy
+
     end
+
 
     private
 

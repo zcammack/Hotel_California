@@ -8,9 +8,15 @@ class TenantsController < ApplicationController
     def create
         @tenant = current_user.tenants.build(tenant_params)
         if @tenant.save
-            redirect_to tenants_path
+            
         else
             render :new
         end
+    end
+
+    private
+
+    def tenant_params
+        params.require(:tenant).permit(:first_name, :last_name, :age)
     end
 end
