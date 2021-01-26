@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 2021_01_23_234034) do
     t.string "wifi"
     t.string "breakfast"
     t.string "accessibility"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_hotels_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -62,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_234034) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "hotels", "users"
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "tenants"
   add_foreign_key "rooms", "hotels"

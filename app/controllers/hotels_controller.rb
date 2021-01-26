@@ -1,5 +1,6 @@
 class HotelsController < ApplicationController
-    before_action :redirect_if_not_logged_in, :set_hotel, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_logged_in
+    before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
     def index
         @hotels = Hotel.all
@@ -22,7 +23,7 @@ class HotelsController < ApplicationController
         if @hotel.save
             redirect_to @hotel, notice: 'Hotel was successfully created.'
         else
-            render :new, notice: 'Hotel was not created.'
+            render :new
         end
     end
 
@@ -30,7 +31,7 @@ class HotelsController < ApplicationController
         if @hotel.update(hotel_params)
             redirect_to @hotel, notice: 'Hotel was successfully updated.'
         else
-            render :edit, notice: 'Hotel has not been changed.'
+            render :edit
         end
     end
 
