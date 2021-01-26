@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
     has_many :tenants
     has_many :hotels
-    has_secure_password
 end

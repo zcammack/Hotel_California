@@ -3,15 +3,15 @@ class HotelsController < ApplicationController
     before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
     def index
-        @hotels = Hotel.all
+        @hotels = current_user.hotels
     end
 
     def show
-       @hotel = Hotel.find_by_id(params[:id])
+
     end
 
     def new
-        @hotel = Hotel.new
+        @hotel = current_user.hotels.build
     end
 
     def edit
@@ -19,9 +19,9 @@ class HotelsController < ApplicationController
     end
 
     def create
-        @hotel = Hotel.new(hotel_params)
+        @hotel = current_user.hotels.build(hotel_params)
         if @hotel.save
-            redirect_to @hotel, notice: 'Hotel was successfully created.'
+            redirect_to hotel_path(@hotel), notice: 'Hotel was successfully created.'
         else
             render :new
         end
@@ -29,7 +29,7 @@ class HotelsController < ApplicationController
 
     def update
         if @hotel.update(hotel_params)
-            redirect_to @hotel, notice: 'Hotel was successfully updated.'
+            redirect_to hotel_path(@hotel), notice: 'Hotel was successfully updated.'
         else
             render :edit
         end
@@ -44,7 +44,7 @@ class HotelsController < ApplicationController
     private
 
     def set_hotel
-        @hotel = Hotel.find(params[:id])
+        @hotel = current_user.hotels.find(params[:id])
     end
 
     def hotel_params

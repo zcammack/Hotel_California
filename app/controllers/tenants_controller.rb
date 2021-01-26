@@ -3,15 +3,15 @@ class TenantsController < ApplicationController
     before_action :set_tenant, only: [:show, :edit, :update, :destroy]
 
     def index
-        @tenants = Tenant.all
+        @tenants = current_user.tenants
     end
 
     def show
-       @tenant = Tenant.find_by_id(params[:id])
+
     end
 
     def new
-        @tenant = Tenant.new
+        @tenant = current_user.tenants.build
     end
 
     def edit
@@ -19,7 +19,7 @@ class TenantsController < ApplicationController
     end
 
     def create
-        @tenant = Tenant.new(tenant_params)
+        @tenant = current_user.tenants.build(tenant_params)
         if @tenant.save
             redirect_to tenant_path(@tenant), notice: 'Tenant was successfully created.'
         else
@@ -44,7 +44,7 @@ class TenantsController < ApplicationController
     private
 
     def set_tenant
-        @tenant = Tenant.find(params[:id])
+        @tenant = current_user.tenants.find(params[:id])
     end
 
     def tenant_params

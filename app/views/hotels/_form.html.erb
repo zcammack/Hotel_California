@@ -1,0 +1,42 @@
+<%= form_with(model: hotel, local:true) do |form| %>
+    <% if project.errors.any? %>
+        <div id="error_listing">
+            <h2><%= pluralize(hotel.errors.count, "error") %>prevented this hotel from being saved:</h2>
+            
+            <ul>
+                <% project.errors.full_messages.each do |error_message| %>
+                    <li><%= error_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= form.label :size %>
+        <%= form.number_field :size %>
+    </div>
+
+    <div class="field">
+        <%= form.label :wifi %>
+        <%= form.text_field :wifi %>
+    </div>
+
+    <div class="field">
+        <%= form.label :breakfast %>
+        <%= form.text_field :breakfast %>
+    </div>
+
+    <div class="field">
+        <%= form.label :accessibility %>
+        <%= form.text_field :accessibility %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>
