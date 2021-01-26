@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-    before_action :redirect_if_not_logged_in
+    before_action :authenticate_user!
     before_action :set_hotel, only: [:show, :edit, :update, :destroy]
     before_action :set_room, only: [:show, :edit, :update, :destroy]
 

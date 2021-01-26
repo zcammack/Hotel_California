@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-    before_action :redirect_if_not_logged_in
+    before_action :authenticate_user!
     before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
     def index

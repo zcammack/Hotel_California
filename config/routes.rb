@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'sessions#home'
+  root 'users#signup'
 
   resources :tenants do
     resources :reservations
