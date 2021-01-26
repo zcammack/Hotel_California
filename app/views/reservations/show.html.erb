@@ -1,0 +1,7 @@
+<h1>Reservation Start Date: <%= @reservation.start_date %></h1>
+
+<h2>Reservation End Date: <%= @reservation.end_date %></h2>
+<p>Party Size: <%= @reservation.party_size %></p>
+<br>
+<%= link_to 'Back', tenant_reservations_path(@reservation.tenant_id) %>
+

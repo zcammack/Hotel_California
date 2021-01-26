@@ -1,5 +1,5 @@
 <%= form_with(model: [@hotel, room], local: true) do |form| %>
-    <% if @room.errors.any? %>
+    <% if room.errors.any? %>
         <div id="error_listing">
             <h2><%= pluralize(@task.errors.count, "error") %> prevented this room from being saved:</h2>
             

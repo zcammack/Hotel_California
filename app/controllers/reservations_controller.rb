@@ -7,6 +7,11 @@ class ReservationsController < ApplicationController
         
     end
 
+    def index
+        binding.pry
+        @tenant = Tenant.find(params[:tenant_id])
+    end
+
     def edit
 
     end

@@ -1,0 +1,29 @@
+<%= form_with(model: [@tenant, reservation], local: true) do |form| %>
+    <% if reservation.errors.any? %>
+        <div id="error_listing">
+            <h2><%= pluralize(@reservation.errors.count, "error") %> prevented this reservation from being saved:</h2>
+            
+            <ul>
+            <% @reservation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="field">
+        <%= form.label :party_size %> <br>
+        <%= form.number_field :party_size %>
+    </div>
+    <div class="field">
+        <%= form.label :start_date %> <br>
+        <%= form.date_field :start_date %>
+    </div>
+    <div class="field">
+        <%= form.label :end_date %> <br>
+        <%= form.date_field :end_date %>
+    </div>
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>

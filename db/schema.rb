@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2021_01_26_162855) do
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
-    t.integer "size"
     t.string "wifi"
     t.string "breakfast"
     t.string "accessibility"

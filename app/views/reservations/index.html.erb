@@ -1,0 +1,11 @@
+<h1>List of Reservations</h1>
+
+<% @tenant.reservations.each do |reservation| %>
+
+<%= link_to reservation.start_date, tenant_reservation_path(@tenant, reservation) %>
+
+<% end %>
+
+<br><br>
+
+<%= link_to 'Back', tenant_path(@tenant) %>

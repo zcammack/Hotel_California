@@ -7,6 +7,10 @@ class RoomsController < ApplicationController
         
     end
 
+    def index
+        @hotel = Hotel.find(params[:hotel_id])
+    end
+
     def edit
 
     end

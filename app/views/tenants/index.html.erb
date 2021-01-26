@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of Tenants</h1>
+
+<table>
+
+  <tbody>
+    <% @tenants.each do |tenant| %>
+        <td><%= tenant.first_name %></td>
+        <td><%= tenant.last_name %></td>
+        <td><%= link_to 'Show', tenant %></td> 
+        <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td> 
+        <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create a New Tenant!', new_tenant_path %>

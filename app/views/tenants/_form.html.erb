@@ -1,0 +1,40 @@
+<%= form_with(model: tenant, local:true) do |form| %>
+    <% if tenant.errors.any? %>
+        <div id="error_listing">
+            <h2><%= pluralize(tenant.errors.count, "error") %>prevented this tenant from being saved:</h2>
+            
+            <ul>
+                <% tenant.errors.full_messages.each do |error_message| %>
+                    <li><%= error_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+    </div>
+
+    <br>
+
+    <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+    </div>
+
+    <br>
+
+    <div class="field">
+        <%= form.label :age %>
+        <%= form.text_field :age %>
+    </div>
+
+    <br>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+
+    <br>
+<% end %>

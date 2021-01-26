@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+    <strong>Tenant First Name:</strong>
+    <%= @tenant.first_name %>
+</p>
+
+<p>
+    <strong>Tenant Last Name:</strong>
+    <%= @tenant.last_name %>
+</p>
+
+<p>
+    <strong>Tenant Age:</strong>
+    <%= @tenant.age %>
+</p>
+
+
+<br>
+
+<h2>Add a Reservation:</h2>
+<%= render 'reservations/form', reservation: @tenant.reservations.build %>
+
+<%= link_to 'Reservations', tenant_reservations_path(@tenant) %>
+<br>
+<%= link_to 'Edit', edit_tenant_path(@tenant) %>
+<br>
+<%= link_to 'Back', tenants_path %>
