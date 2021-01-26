@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
     private
 
     def set_tenant
-        @tenant = tenant.find(params[:tenant_id])
+        @tenant = current_user.tenants.find(params[:tenant_id])
     end
 
     def set_reservation

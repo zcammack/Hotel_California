@@ -5,11 +5,26 @@
     <%= @hotel.name %>
 </p>
 
-<% if @hotel.rooms.any? %>
-    <br>
-    <h2>Available Rooms:</h2>
-    <%= render @hotel.rooms %>
-<% end %>
+<p>
+    <strong>Number of Rooms:</strong>
+    <%= @hotel.rooms.count %>
+</p>
+
+<p>
+    <strong>Wifi Availability:</strong>
+    <%= @hotel.wifi %>
+</p>
+
+<p>
+    <strong>Hotel Breakfast Offers:</strong>
+    <%= @hotel.breakfast %>
+</p>
+
+<p>
+    <strong>Hotel Accesibility Options:</strong>
+    <%= @hotel.accessibility %>
+</p>
+
 
 <br>
 
@@ -17,4 +32,4 @@
 <%= render 'rooms/form', room: @hotel.rooms.build %>
 
 <%= link_to 'Edit', edit_hotel_path(@hotel) %> |
-<% link_to 'Back', hotels_path %>
+<%= link_to 'Back', hotels_path %>

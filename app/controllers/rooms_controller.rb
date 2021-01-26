@@ -33,7 +33,7 @@ class RoomsController < ApplicationController
     private
 
     def set_hotel
-        @hotel = Hotel.find(params[:hotel_id])
+        @hotel = current_user.hotels.find(params[:hotel_id])
     end
 
     def set_room
