@@ -8,7 +8,7 @@ class TenantsController < ApplicationController
     def create
         @tenant = current_user.tenants.build(tenant_params)
         if @tenant.save
-            
+
         else
             render :new
         end

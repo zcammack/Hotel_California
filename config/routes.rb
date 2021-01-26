@@ -11,13 +11,12 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :tenants do
-    resources :reservations, only: [:index]
+    resources :reservations
   end
-  resources :reservations
-  resources :rooms
+
   resources :users
   resources :hotels do
-    resources :rooms, only: [:index]
+    resources :rooms
   end
 
 end

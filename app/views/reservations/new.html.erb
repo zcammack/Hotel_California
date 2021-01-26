@@ -1,14 +1,35 @@
 <h1>Reservation Details</h1>
 
 <%= form_for(@reservation) do |f| %>
+    <div>
     <%= f.label :party_size %>
     <%= f.number_field :party_size %>
+    </div>
     <br>
+    
+    <div>
     <%= f.label :start_date %>
     <%= f.date_field :start_date %>
+    </div>
     <br>
+
+    <div>
     <%= f.label :end_date %>
     <%= f.date_field :end_date %>
+    </div>
     <br>
+
+    <div>
+        <h3>Fill in the information for the primary tenant:</h3>
+            <%= f.fields_for :tenant, Tenant.new do |tenant_attributes|%>
+                <%= tenant_attributes.label :first_name, "First Name:" %>
+                <%= tenant_attributes.text_field :first_name %>
+                <%= tenant_attributes.label :last_name, "Last Name:" %>
+                <%= tenant_attributes.text_field :last_name %>
+                <%= tenant_attributes.label :age, "Age:" %>
+                <%= tenant_attributes.text_field :age %>
+        <% end %>
+    </div>
+
     <%= f.submit %>
 <% end %>

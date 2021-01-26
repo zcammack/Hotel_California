@@ -8,4 +8,5 @@
 <br>
 <p>Accessibility Options: <%=@hotel.accessibility%></p>
 <br>
-<%= link_to "Make a Reservation", new_tenant_path %> </p>
+<h2>Available Rooms</h2>
+    <%= render @hotel.rooms %>

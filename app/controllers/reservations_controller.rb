@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
 
     def new
         @reservation = Reservation.new
+        @reservation.build_tenant
     end
 
     def create
@@ -23,15 +24,15 @@ class ReservationsController < ApplicationController
     end
 
     def show
-        @reservation = Reservation.find_by(id: params)
+        @reservation = Reservation.find_by(id: params[:id])
     end
 
     def edit
-        @reservation = Reservation.find_by(id: params)
+        @reservation = Reservation.find_by(id: params[:id])
     end
 
     def update
-        @reservation = Reservation.find_by(id: params)
+        @reservation = Reservation.find_by(id: params[:id])
 
     end
 
@@ -43,6 +44,6 @@ class ReservationsController < ApplicationController
     private
 
     def reservation_params
-        params.require(:reservation).permit(:party_size, :start_date, :end_date)
+        params.require(:reservation).permit(:party_size, :start_date, :end_date, tenant_attributes: [:first_name, :last_name, :age])
     end
 end

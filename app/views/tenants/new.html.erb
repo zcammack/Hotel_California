@@ -1,15 +1,18 @@
 <h1>Please fill out the following form for the primary room holder.</h1>
-<%= form_for(@tenant) do |f| %>
-    
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, required:true %>
-    <br>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, required:true %>
-    <br>
-    <%= f.label :age %>
-    <%= f.text_field :age, required:true %>
-    <br>
-    <%= f.submit "Submit" %>
-
+<%= form_with model: @tenant do |form| %>
+  Tenants:
+  <ul>
+    <%= form.fields_for :reservation do |reservation_form| %>
+      <li>
+        <%= reservation_form.label :party_size %>
+        <%= reservation_form.number_field :party_size %>
+        <br>
+        <%= reservation_form.label :start_date %>
+        <%= reservation_form.date_field :start_date %>
+        <br>
+        <%= reservation_form.label :end_date %>
+        <%= reservation_form.date_field :end_date %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>

@@ -35,11 +35,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_234034) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "occupancy"
-    t.boolean "vacant"
     t.string "room_number"
-    t.boolean "smoking"
-    t.string "price_per_night"
+    t.string "smoking"
     t.integer "hotel_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
