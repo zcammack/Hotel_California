@@ -1,12 +1,20 @@
-<h1><%= @hotel.name %></h1>
+<p id="notice"><%= notice %></p>
 
-<p>Number of Total Rooms: <%= @hotel.size%></p>
-<br>
-<p>Wifi: <%= @hotel.wifi%></p>
-<br>
-<p>Breakfast: <%=@hotel.breakfast%></p>
-<br>
-<p>Accessibility Options: <%=@hotel.accessibility%></p>
-<br>
-<h2>Available Rooms</h2>
+<p>
+    <strong>Hotel:</strong>
+    <%= @hotel.name %>
+</p>
+
+<% if @hotel.rooms.any? %>
+    <br>
+    <h2>Available Rooms:</h2>
     <%= render @hotel.rooms %>
+<% end %>
+
+<br>
+
+<h2>Add a Room:</h2>
+<%= render 'rooms/form', room: @hotel.rooms.build %>
+
+<%= link_to 'Edit', edit_hotel_path(@hotel) %> |
+<% link_to 'Back', hotels_path %>

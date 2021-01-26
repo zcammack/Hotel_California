@@ -14,7 +14,6 @@
     <div>
       <% if logged_in? %> 
       <%= link_to "View Hotels", hotels_path %> |
-      <%= link_to "See My Reservations", reservations_path %> |
       <%= link_to "Logout", logout_path, method:"delete" %>
       <% else %>
       <%= link_to "Sign Up", signup_path %> |

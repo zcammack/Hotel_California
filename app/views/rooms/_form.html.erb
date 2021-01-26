@@ -1,0 +1,13 @@
+<%= form_with(model: [@hotel, room], local: true) do |form| %>
+    <p>
+        <%= form.label :room_number %> <br>
+        <%= form.number_field :room_number %>
+    </p>
+    <p>
+        <%= form.label :smoking %> <br>
+        <%= form.text_field :smoking %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
