@@ -12,18 +12,30 @@
     <% end %>
     
     <div class="field">
-        <%= form.label :party_size %> <br>
+        <%= form.label :rooms, 'Hotel Room' %> <br>
+        <%= form.collection_select :id, Room.all, :id, :room_name %>
+    </div>
+    <div class="field">
+        <%= form.hidden_field :tenant_id, :value => @tenant.id %> <br>
+    </div>
+    <br>
+    <div class="field">
+        <%= form.label :party_size, 'Party Size' %> <br>
         <%= form.number_field :party_size %>
     </div>
+    <br>
     <div class="field">
-        <%= form.label :start_date %> <br>
+        <%= form.label :start_date, 'Starting Date' %> <br>
         <%= form.date_field :start_date %>
     </div>
+    <br>
     <div class="field">
-        <%= form.label :end_date %> <br>
+        <%= form.label :end_date, 'Ending Date' %> <br>
         <%= form.date_field :end_date %>
     </div>
+    <br>
     <div class="actions">
         <%= form.submit %>
     </div>
+    <br>
 <% end %>

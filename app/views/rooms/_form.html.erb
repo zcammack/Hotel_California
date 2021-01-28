@@ -1,11 +1,11 @@
 <%= form_with(model: [@hotel, room], local: true) do |form| %>
     <% if room.errors.any? %>
         <div id="error_listing">
-            <h2><%= pluralize(@task.errors.count, "error") %> prevented this room from being saved:</h2>
+            <h2><%= pluralize(room.errors.count, "error") %> prevented this room from being saved:</h2>
             
             <ul>
-            <% @room.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+            <% room.errors.full_messages.each do |error_message| %>
+                <li><%= error_message %></li>
             <% end %>
             </ul>
         </div>
@@ -17,9 +17,11 @@
     </div>
     <div class="field">
         <%= form.label :smoking %> <br>
-        <%= form.text_field :smoking %>
+        <%= form.select :smoking, ['Yes', 'No'] %>
     </div>
+    <br>
     <div class="actions">
         <%= form.submit %>
     </div>
 <% end %>
+<br>

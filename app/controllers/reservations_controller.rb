@@ -8,7 +8,6 @@ class ReservationsController < ApplicationController
     end
 
     def index
-        binding.pry
         @tenant = Tenant.find(params[:tenant_id])
     end
 
@@ -18,8 +17,11 @@ class ReservationsController < ApplicationController
 
     def create
         @tenant = Tenant.find(params[:tenant_id])
-        @reservation = @tenant.reservations.create(reservation_params)
-        redirect_to tenant_path(@tenant)
+        @room = Room.find(params[:reservation][:id])
+        @reservation = @tenant.reservations.new(reservation_params)
+        @reservation.room_id = @room.id
+        @reservation.save
+        redirect_to tenant_reservation_path(@tenant.id, @reservation.id)
     end
 
     def update

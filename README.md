@@ -16,7 +16,7 @@ X 5. Your application must provide standard user authentication, including signu
 
 6. Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
-7. You must include and make use of a nested resource with the appropriate RESTful URLs.
+X 7. You must include and make use of a nested resource with the appropriate RESTful URLs.
 
 • You must include a nested new route with form that relates to the parent resource
 
@@ -28,7 +28,7 @@ a. Your fields should be enclosed within a fieldswitherrors class
 
 b. Error messages describing the validation failures must be present within the view.
 
-9. Your application must be, within reason, a DRY(Do-Not-Repeat-Yourself) rails app.
+X 9. Your application must be, within reason, a DRY(Do-Not-Repeat-Yourself) rails app.
 
 • Logic present in your controllers should be encapsulated as methods in your models.
 
@@ -36,4 +36,4 @@ b. Error messages describing the validation failures must be present within the 
 
 • Follow patterns in the Rails Style Guide (Links to an external site.) and the Ruby Style Guide (Links to an external site.).
 
-10. Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+X 10. Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.

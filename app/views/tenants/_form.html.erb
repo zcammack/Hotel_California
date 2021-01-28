@@ -12,29 +12,22 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :first_name %>
+        <%= form.label :first_name, 'First Name:' %>
         <%= form.text_field :first_name %>
     </div>
-
     <br>
-
     <div class="field">
-        <%= form.label :last_name %>
+        <%= form.label :last_name, 'Last Name:' %>
         <%= form.text_field :last_name %>
     </div>
-
     <br>
-
     <div class="field">
-        <%= form.label :age %>
+        <%= form.label :age, 'Age:' %>
         <%= form.text_field :age %>
     </div>
-
     <br>
-
     <div class="actions">
         <%= form.submit %>
     </div>
-
     <br>
 <% end %>
