@@ -1,9 +1,0 @@
-<p><%= room.id %> | <%= link_to room.room_number, hotel_room_path(@hotel, room) %></p>
-
-<h2>Room Details...</h2>
-
-<%= render 'rooms/form', room: room %>
-
-<p><%= link_to "Delete Room", hotel_room_path(@hotel, room), method: :delete %></p>
-
-<br>

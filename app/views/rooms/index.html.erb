@@ -2,12 +2,18 @@
 
 <% rooms = @hotel.rooms.sort_by &:room_number %>
 
-<% rooms.each do |room| %>
+<table>
+  <tbody>
+    <% rooms.each do |room| %>
+        <td><%= room.room_number %></td>
+        <td><%= link_to 'Show', hotel_room_path(room.hotel_id, room) %></td> 
+        <td><%= link_to 'Edit', edit_hotel_room_path(room.hotel_id, room) %></td> 
+        <td><%= link_to 'Destroy', hotel_room_path(room.hotel_id, room), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to room.room_number, hotel_room_path(@hotel, room) %>
-
-<% end %>
-
-<br><br>
+<br>
 
 <%= link_to 'Back', hotel_path(@hotel) %>

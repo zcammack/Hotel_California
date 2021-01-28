@@ -4,6 +4,8 @@ class Hotel < ApplicationRecord
 
     validates :name, :wifi, :breakfast, :accessibility, presence: true
 
+    validates :name, uniqueness: true
+
     validates :name, length: { maximum: 64 }
 
     validates :wifi, inclusion: { in: %w(Yes No),

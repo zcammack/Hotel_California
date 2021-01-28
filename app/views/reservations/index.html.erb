@@ -1,11 +1,16 @@
-<h1>List of Reservations</h1>
+<h1>List of Reservations by Tenant</h1>
+<table>
+  <tbody>
+    <% @tenant.reservations.each do |reservation| %>
+        <td><%= reservation.start_date %> to <%= reservation.end_date %></td>
+        <td><%= link_to 'Show', tenant_reservation_path(reservation.tenant_id, reservation) %></td> 
+        <td><%= link_to 'Edit', edit_tenant_reservation_path(reservation.tenant_id, reservation) %></td> 
+        <td><%= link_to 'Destroy', tenant_reservation_path(reservation.tenant_id, reservation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @tenant.reservations.each do |reservation| %>
-
-<%= link_to reservation.start_date, tenant_reservation_path(@tenant, reservation) %>
-
-<% end %>
-
-<br><br>
+<br>
 
 <%= link_to 'Back', tenant_path(@tenant) %>

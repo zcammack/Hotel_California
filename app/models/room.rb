@@ -5,6 +5,9 @@ class Room < ApplicationRecord
 
   validates :room_number, :smoking, presence: true
 
+  validates :room_number, uniqueness: { scope: :hotel,
+    message: " should be unique per hotel." }
+
   validates :room_number, numericality: { only_integer: true }
 
   validates :smoking, inclusion: { in: %w(Yes No),

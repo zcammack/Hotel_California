@@ -6,4 +6,4 @@
 
 <%= render 'reservations/form', reservation: @reservation %>
 
-<%= link_to 'Back to Tenant'%>
+<%= link_to 'Back to Reservations', tenant_reservations_path(@reservation.tenant_id) %> | <%= link_to 'Back to Tenant', tenant_path(@reservation.tenant_id) %>

@@ -5,9 +5,9 @@
   <tbody>
     <% @hotels.each do |hotel| %>
         <td><%= hotel.name %></td>
-        <td><%= link_to 'Show', hotel %></td> 
+        <td><%= link_to 'Show', hotel_path(hotel) %></td> 
         <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td> 
-        <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', hotel_path(hotel), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

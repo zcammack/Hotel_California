@@ -18,11 +18,15 @@ class RoomsController < ApplicationController
     def create
         @hotel = Hotel.find(params[:hotel_id])
         @room = @hotel.rooms.create(room_params)
-        redirect_to hotel_path(@hotel)
+        if @room.save
+            redirect_to hotel_path(@hotel), notice: 'Room was successfully created.'
+        else
+            redirect_to hotel_path(@hotel), notice: 'Room has not been saved.'
+        end
     end
 
     def update
-        if @room.update
+        if @room.update(room_params)
             redirect_to @hotel, notice: 'Room has been successfully updated.'
         else
             render :edit

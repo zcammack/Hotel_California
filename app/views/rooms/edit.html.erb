@@ -1,7 +1,5 @@
-<p>
-    Editing <%= @room.room_number %>:
-</p>
+<h3> Editing Room Number: <%= @room.room_number %> </h3>
 
 <%= render 'rooms/form', room: @room %>
 
-<%= link_to 'Back to Hotel'%>
+<%= link_to 'Back to Hotel', hotel_path(@hotel) %>

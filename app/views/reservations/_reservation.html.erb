@@ -1,9 +1,0 @@
-<p><%= reservation.id %> | <%= link_to reservation.start_date, hotel_reservation_path(@hotel, reservation) %></p>
-
-<h2>Reservation Details...</h2>
-
-<%= render 'reservations/form', reservation: reservation %>
-
-<p><%= link_to "Delete Reservation", hotel_reservation_path(@hotel, reservation), method: :delete %></p>
-
-<br>

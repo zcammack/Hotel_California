@@ -29,6 +29,5 @@
 <h2>Add a Room:</h2>
 <%= render 'rooms/form', room: @hotel.rooms.build %>
 
-<%= link_to 'Rooms', hotel_rooms_path(@hotel) %> |
-<%= link_to 'Edit', edit_hotel_path(@hotel) %> |
-<%= link_to 'Back', hotels_path %>
+
+<%= link_to 'Rooms', hotel_rooms_path(@hotel) %> | <%= link_to 'Back', hotels_path %>

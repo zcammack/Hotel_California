@@ -1,16 +1,17 @@
-<%= form_with(model: [@hotel, room], local: true) do |form| %>
+<%= form_with(model: [@hotel, room], local: true) do |form| %>    
+
     <% if room.errors.any? %>
         <div id="error_listing">
             <h2><%= pluralize(room.errors.count, "error") %> prevented this room from being saved:</h2>
             
             <ul>
-            <% room.errors.full_messages.each do |error_message| %>
-                <li><%= error_message %></li>
-            <% end %>
+                <% room.errors.full_messages.each do |error_message| %>
+                    <li><%= error_message %></li>
+                <% end %>
             </ul>
         </div>
     <% end %>
-    
+
     <div class="field">
         <%= form.label :room_number %> <br>
         <%= form.number_field :room_number %>

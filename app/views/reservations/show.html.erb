@@ -3,5 +3,4 @@
 <h2>Reservation End Date: <%= @reservation.end_date %></h2>
 <h3><strong>Party Size:</strong> <%= @reservation.party_size %></h3>
 <br>
-<%= link_to 'Back', tenant_reservations_path(@reservation.tenant_id) %>
-
+<%= link_to 'Back to Reservations', tenant_reservations_path(@reservation.tenant_id) %> | <%= link_to 'Back to Tenant', tenant_path(@reservation.tenant_id) %>

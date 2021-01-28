@@ -20,12 +20,15 @@ class ReservationsController < ApplicationController
         @room = Room.find(params[:reservation][:id])
         @reservation = @tenant.reservations.new(reservation_params)
         @reservation.room_id = @room.id
-        @reservation.save
-        redirect_to tenant_reservation_path(@tenant.id, @reservation.id)
+        if @reservation.save
+            redirect_to tenant_reservation_path(@tenant, @reservation), notice: 'Reservation was successfully created!'
+        else
+            redirect_to tenant_reservations_path(@tenant), notice: 'Reservation has not been saved.'
+        end
     end
 
     def update
-        if @reservation.update
+        if @reservation.update(reservation_params)
             redirect_to tenant_path(@tenant), notice: 'Reservation has been successfully updated.'
         else
             render :edit
@@ -34,7 +37,7 @@ class ReservationsController < ApplicationController
 
     def destroy
         @reservation.destroy
-        redirect_to tenant_path(@tenant), notice: 'Reservation was successfully deleted.'
+        redirect_to tenant_reservations_path(@tenant), notice: 'Reservation was successfully deleted.'
     end
 
     private
