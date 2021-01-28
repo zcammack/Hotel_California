@@ -23,21 +23,24 @@ class ReservationsController < ApplicationController
         if @reservation.save
             redirect_to tenant_reservation_path(@tenant, @reservation), notice: 'Reservation was successfully created!'
         else
-            redirect_to tenant_reservations_path(@tenant), notice: 'Reservation has not been saved.'
+            render :_errorform, notice: 'Reservation has not been saved.'
         end
     end
 
     def update
         if @reservation.update(reservation_params)
-            redirect_to tenant_path(@tenant), notice: 'Reservation has been successfully updated.'
+            redirect_to tenant_reservations_path(@tenant), notice: 'Reservation has been successfully updated.'
         else
-            render :edit
+            render :_errorform, notice: 'Reservation has not been saved.'
         end
     end
 
     def destroy
-        @reservation.destroy
-        redirect_to tenant_reservations_path(@tenant), notice: 'Reservation was successfully deleted.'
+        if @reservation.destroy
+            redirect_to tenant_reservations_path(@tenant), notice: 'Reservation was successfully deleted.'
+        else
+            redirect_to tenant_reservations_path(@tenant), notice: 'Reservation was not deleted.'
+        end
     end
 
     private

@@ -21,7 +21,7 @@ class HotelsController < ApplicationController
     def create
         @hotel = current_user.hotels.build(hotel_params)
         if @hotel.save
-            redirect_to hotel_path(@hotel), notice: 'Hotel was successfully created.'
+            redirect_to hotels_path, notice: 'Hotel was successfully created.'
         else
             render :new
         end

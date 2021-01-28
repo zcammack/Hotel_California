@@ -21,7 +21,7 @@ class TenantsController < ApplicationController
     def create
         @tenant = current_user.tenants.build(tenant_params)
         if @tenant.save
-            redirect_to tenant_path(@tenant), notice: 'Tenant was successfully created.'
+            redirect_to tenants_path, notice: 'Tenant was successfully created.'
         else
             render :new
         end

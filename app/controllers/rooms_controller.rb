@@ -21,21 +21,24 @@ class RoomsController < ApplicationController
         if @room.save
             redirect_to hotel_path(@hotel), notice: 'Room was successfully created.'
         else
-            redirect_to hotel_path(@hotel), notice: 'Room has not been saved.'
+            render :_errorform, notice: 'Room has not been saved.'
         end
     end
 
     def update
         if @room.update(room_params)
-            redirect_to @hotel, notice: 'Room has been successfully updated.'
+            redirect_to hotel_rooms_path(@hotel), notice: 'Room has been successfully updated.'
         else
-            render :edit
+            render :_errorform, notice: 'Room has not been saved.'
         end
     end
 
     def destroy
-        @room.destroy
-        redirect_to @hotel, notice: 'Room was successfully deleted.'
+        if @room.destroy
+            redirect_to hotel_rooms_path(@hotel), notice: 'Room was successfully deleted.'
+        else
+            redirect_to hotel_rooms_path(@hotel), notice: 'Room was not deleted.'
+        end
     end
 
     private
