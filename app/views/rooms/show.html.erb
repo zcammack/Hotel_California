@@ -1,20 +1,18 @@
 <h1>Room Number: <%= @room.room_number %></h1>
 
-<p>Smoking: <%= @room.smoking %></p>
-<br>
+<h2>Smoking: <%= @room.smoking %></h2>
 <p>Current Reservations:</p>
 
 <% @room.reservations.each do |reservation| %>
-
+Primary Tenant: <%= reservation.reservation_tenant %>
+<br>
 Number of Occupants: <%= reservation.party_size %>
 <br>
 Start Date: <%= reservation.start_date %>
 <br>
 End Date: <%= reservation.end_date %>
 <br>
-
-<% end %>
-
-<%= link_to 'Back', hotel_rooms_path(@room.hotel_id, @room) %>
 <br>
-
+<% end %>
+<br>
+<%= link_to 'Back to All Rooms', hotel_rooms_path(@room.hotel_id, @room) %>

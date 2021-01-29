@@ -12,7 +12,7 @@
   <body>
       <p class="notice"><%= notice %></p>
       <% if user_signed_in? %>
-      <%= link_to 'My Hotels', hotels_path %> | <%= link_to 'My Tenants', tenants_path %>
+      <%= link_to 'My Hotels', hotels_path %> | <%= link_to 'My Tenants', tenants_path %> | <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
       <% end %>
     <%= yield %>
   </body>

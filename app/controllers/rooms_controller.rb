@@ -3,6 +3,10 @@ class RoomsController < ApplicationController
     before_action :set_hotel, only: [:show, :edit, :update, :destroy]
     before_action :set_room, only: [:show, :edit, :update, :destroy]
 
+    def new
+        @hotel = Hotel.find(params[:hotel_id])
+    end
+
     def show
         
     end
@@ -21,7 +25,7 @@ class RoomsController < ApplicationController
         if @room.save
             redirect_to hotel_path(@hotel), notice: 'Room was successfully created.'
         else
-            render :_errorform, notice: 'Room has not been saved.'
+            render :new, notice: 'Room has not been saved.'
         end
     end
 

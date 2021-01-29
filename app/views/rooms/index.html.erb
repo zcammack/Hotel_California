@@ -1,5 +1,7 @@
 <h1>List of Rooms at <%= @hotel.name %></h1>
-
+<br>
+<%= link_to "Create a Room", new_hotel_room_path(@hotel)%>
+<br><br>
 <% rooms = @hotel.rooms.sort_by &:room_number %>
 
 <table>

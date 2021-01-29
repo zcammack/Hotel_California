@@ -10,4 +10,8 @@ class Tenant < ApplicationRecord
   validates :last_name, length: { maximum: 32 }
 
   validates :age, numericality: { only_integer: true }
+
+  scope :senior, -> { where("age > 65") }
+
+  scope :underage, -> { where("age < 18") }
 end
